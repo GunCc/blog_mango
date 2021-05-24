@@ -1,18 +1,45 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+# Numerous always-ignore extensions  
+*.bak  
+*.patch  
+*.diff  
+*.err  
 
-# Other files and folders
-.settings/
+# temp file for git conflict merging  
+*.orig  
+*.log  
+*.rej  
+*.swo  
+*.swp  
+*.zip  
+*.vi  
+*~  
+*.sass-cache  
+*.tmp.html  
+*.dump  
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+# OS or Editor folders  
+.DS_Store  
+._*  
+.cache  
+.project  
+.settings  
+.tmproj  
+*.esproj  
+*.sublime-project  
+*.sublime-workspace  
+nbproject  
+thumbs.db  
+*.iml  
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+# Folders to ignore  
+.hg  
+.svn  
+.CVS  
+.idea  
+node_modules/  
+jscoverage_lib/  
+bower_components/  
+dist/  
+————————————————
+版权声明：本文为CSDN博主「不懂小小彬」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/hf123lsk/article/details/79001411
