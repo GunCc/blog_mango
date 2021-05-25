@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "commit": "git-cz"
+  },
   "dependencies": {
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
@@ -8,6 +11,15 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+    }
+  },
+  "devDependencies": {
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
     }
   }
 }
