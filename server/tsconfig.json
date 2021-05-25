@@ -11,6 +11,19 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "incremental": true,
-    "paths": {}
+    "paths": {
+      "@app/db": [
+        "libs/db/src"
+      ],
+      "@app/db/*": [
+        "libs/db/src/*"
+      ],
+      "@app/commen": [
+        "libs/commen/src"
+      ],
+      "@app/commen/*": [
+        "libs/commen/src/*"
+      ]
+    }
   }
 }
