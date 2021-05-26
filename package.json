@@ -1,5 +1,32 @@
 {
+<<<<<<< HEAD
   "devDependencies": {
     "@types/node": "^15.6.1"
   }
 }
+=======
+  "scripts": {
+    "commit": "git-cz"
+  },
+  "dependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+    }
+  },
+  "devDependencies": {
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  }
+}
+>>>>>>> ff15182fc926285fd25ccb2b85504177ef3d54f1

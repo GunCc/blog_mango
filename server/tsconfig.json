@@ -10,6 +10,20 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
-    "incremental": true
+    "incremental": true,
+    "paths": {
+      "@app/db": [
+        "libs/db/src"
+      ],
+      "@app/db/*": [
+        "libs/db/src/*"
+      ],
+      "@app/commen": [
+        "libs/commen/src"
+      ],
+      "@app/commen/*": [
+        "libs/commen/src/*"
+      ]
+    }
   }
 }
