@@ -1,10 +1,4 @@
 {
-<<<<<<< HEAD
-  "devDependencies": {
-    "@types/node": "^15.6.1"
-  }
-}
-=======
   "scripts": {
     "commit": "git-cz"
   },
@@ -29,4 +23,3 @@
     }
   }
 }
->>>>>>> ff15182fc926285fd25ccb2b85504177ef3d54f1
