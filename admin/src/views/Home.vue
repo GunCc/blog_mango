@@ -1,18 +1,37 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <el-button>123</el-button>
+    <button @click="addCount">count is: {{ count }}</button>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
-
+import { computed, defineComponent } from "vue";
+import { useStore } from "../store/index";
 export default defineComponent({
   name: "Home",
-  components: {
-    HelloWorld,
+  components: {},
+  setup() {
+    
+    const store = useStore();
+    console.log(store)
+    const count: any = computed({
+      get() {
+        return store.state.count;
+      },
+      set(value) {
+        store.commit("increment", value);
+      },
+    });
+
+    function addCount() {
+      count.value += 1;
+    }
+
+    return {
+      count,
+      addCount,
+    };
   },
 });
 </script>

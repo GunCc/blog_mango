@@ -1,26 +1,36 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
-import Home from "../views/Home.vue";
+
+import Layout from '@/layout/Main/index.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "Home",
-    component: Home,
+    component: () =>
+      import(/* webpackChunkName: "Home" */ "../views/Home.vue"),
   },
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+    path: "/Layout",
+    name: "Layout",
+    component: Layout
   },
 ];
+
+
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
 });
+
+// 删除/重置路由
+export function resetRoute(): void {
+  router.getRoutes().forEach(route => {
+    const { name } = route
+    if (name) {
+      router.hasRoute(name) && router.removeRoute(name)
+    }
+  })
+}
 
 export default router;
