@@ -10,6 +10,6 @@ export enum codeType {
 // 返回前端响应的数据
 export interface PostData<T> {
     code: codeType,
-    data: T,
     msg: string
+    data?: T,
 }
