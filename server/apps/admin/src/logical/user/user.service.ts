@@ -1,7 +1,7 @@
 import { DbService } from '@app/db';
 import { Injectable } from '@nestjs/common';
 import * as Sequelize from 'sequelize';
-import { PostData } from '../../model';
+import { codeType, PostData } from '../../model';
 import { userDto } from './user.dto';
 
 @Injectable()
@@ -14,6 +14,13 @@ export class UserService {
      * @returns userDto数组
      */
     async findOne(username: string): Promise<PostData<userDto | string> | undefined> {
+        if(!username){
+            return {
+                code: codeType.CLIENT_ERROR,
+                data: '请输入用户名',
+                msg: "Success"
+            }
+        }
         const sql = `
             SELECT 
                 user_id id,account_name  username, real_name realName, passwd passwrod, passwd_salt salt, mobile, role
@@ -28,9 +35,8 @@ export class UserService {
                 raw: true,
                 logging: true
             });
-            console.log(user[0]);
             return {
-                code: 200,
+                code: codeType.SUCCESS,
                 data: user[0] || '差无此人',
                 msg: "Success"
             }
