@@ -2,7 +2,7 @@
 // 生产环境
 const productConfig = {
     mysql: {
-        port: "3306",
+        port: 3306,
         host: 'localhost',
         user: 'root',
         password: "123456",
@@ -14,7 +14,7 @@ const productConfig = {
 // 开发环境
 const localConfig = {
     mysql: {
-        port: "3306",
+        port: 3306,
         host: 'localhost',
         user: 'root',
         password: "123456",
@@ -24,3 +24,5 @@ const localConfig = {
 }
 
 const config = process.env.NODE_ENV ? productConfig : localConfig;
+
+export default config
