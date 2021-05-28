@@ -1,4 +1,5 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { codeType } from '../../model';
 import { AuthService } from '../auth/auth.service';
 import { UserService } from './user.service';
@@ -13,6 +14,7 @@ export class UserController {
     //     return this.usersService.findOne(body.username);
     // }
 
+    @UseGuards(AuthGuard('jwt'))
     @Post("register")
     register(@Body() body: any) {
         return this.usersService.register(body)

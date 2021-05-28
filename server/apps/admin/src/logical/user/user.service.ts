@@ -43,6 +43,7 @@ export class UserService {
     * @returns userDto数组
     */
     async register(requestBody: any): Promise<PostData<any> | any> {
+        console.log(requestBody)
         //   用户名 真实姓名 密码 重复密码 手机号
         const { accountName, realName, password, repassword, mobile } = requestBody;
         if (password !== repassword) {
