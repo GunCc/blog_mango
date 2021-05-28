@@ -5,7 +5,7 @@ import { logger,LoggerMiddleware } from './middleware/logger.middleware';
 async function bootstrap() {
   const app = await NestFactory.create(AdminModule);
   app.setGlobalPrefix("admin");
-  app.use(LoggerMiddleware)
+  // app.use(new LoggerMiddleware())
   await app.listen(3000);
 }
 bootstrap();
