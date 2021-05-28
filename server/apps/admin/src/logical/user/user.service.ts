@@ -29,7 +29,7 @@ export class UserService {
             const user: userDto[] | undefined = await this.sequelize.query(sql, {
                 type: Sequelize.QueryTypes.SELECT,
                 raw: true,
-                logging: true
+                logging: false
             });
             return user[0]
         } catch (e) {
@@ -72,7 +72,7 @@ export class UserService {
         `
         try {
             await this.sequelize.query(registerSql, {
-                logging: true
+                logging: false
             })
             return {
                 code: codeType.SUCCESS,
