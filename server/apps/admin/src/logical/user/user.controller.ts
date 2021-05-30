@@ -13,6 +13,7 @@ export class UserController {
 
     constructor(private readonly authService: AuthService, private readonly usersService: UserService) { }
 
+    @UseGuards(AuthGuard('jwt'))
     @UsePipes(new ValidationPipe()) 
     @Post("register")
     register(@Body() body: RegisterInfoDTO) {
