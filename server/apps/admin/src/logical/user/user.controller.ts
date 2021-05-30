@@ -1,22 +1,21 @@
-import { Body, Controller, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Post, UseGuards, UsePipes } from '@nestjs/common';
+import { RegisterInfoDTO } from './user.dto';
 import { AuthGuard } from '@nestjs/passport';
 import { codeType } from '../../model';
 import { AuthService } from '../auth/auth.service';
 import { UserService } from './user.service';
+import { ValidationPipe } from './../../pipe/validation.pipe';
+// import { RegisterInfoDTO } from './user.dto';
+
 
 @Controller('user')
 export class UserController {
 
     constructor(private readonly authService: AuthService, private readonly usersService: UserService) { }
 
-    // @Post('find-one')
-    // findOne(@Body() body: any) {
-    //     return this.usersService.findOne(body.username);
-    // }
-
-    @UseGuards(AuthGuard('jwt'))
+    @UsePipes(new ValidationPipe()) 
     @Post("register")
-    register(@Body() body: any) {
+    register(@Body() body: RegisterInfoDTO) {
         return this.usersService.register(body)
     }
 
