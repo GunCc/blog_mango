@@ -26,6 +26,9 @@
     "@nestjs/jwt": "^7.2.0",
     "@nestjs/passport": "^7.1.5",
     "@nestjs/platform-express": "^7.6.15",
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.1",
+    "log4js": "^6.3.0",
     "mysql2": "^2.2.5",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
@@ -35,7 +38,6 @@
     "rxjs": "^6.6.6",
     "sequelize": "^6.6.2",
     "sequelize-typescript": "^2.1.0",
-    "log4js": "^6.3.0",
     "stacktrace-js": "^2.0.2"
   },
   "devDependencies": {
