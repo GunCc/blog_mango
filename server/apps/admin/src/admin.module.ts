@@ -4,13 +4,13 @@ import { AdminService } from './admin.service';
 import { UserModule } from './logical/user/user.module';
 import { AuthModule } from './logical/auth/auth.module';
 import { UserController } from './logical/user/user.controller';
-import { ArticleService } from './logical/article/article.service';
 import { ArticleModule } from './logical/article/article.module';
+import { ArticleController } from './logical/article/article.controller';
 
 
 @Module({
   imports: [UserModule, AuthModule, ArticleModule],
-  controllers: [AdminController, UserController],
-  providers: [AdminService, ArticleService],
+  controllers: [AdminController, UserController, ArticleController],
+  providers: [AdminService],
 })
-export class AdminModule {}
+export class AdminModule { }

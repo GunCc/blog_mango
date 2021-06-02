@@ -1,6 +1,9 @@
 {
 	"easycom": {
-		"^u-(.*)":"./uview-ui/components/u-$1/u-$1"
+		"autoscan": true,
+		"custom": {
+			"^u-(.*)": "uview-ui/components/u-$1/u-$1"
+		}
 	},
 	"pages": [{
 		"path": "pages/index/index",
