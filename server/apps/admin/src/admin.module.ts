@@ -8,11 +8,13 @@ import { ArticleModule } from './logical/article/article.module';
 import { ArticleController } from './logical/article/article.controller';
 import { ArticleTypeController } from './logical/article-type/article-type.controller';
 import { ArticleTypeModule } from './logical/article-type/article-type.module';
+import { CollectController } from './logical/collect/collect.controller';
+import { CollectModule } from './logical/collect/collect.module';
 
 
 @Module({
-  imports: [UserModule, AuthModule, ArticleModule, ArticleTypeModule],
-  controllers: [AdminController, UserController, ArticleController, ArticleTypeController],
+  imports: [UserModule, AuthModule, ArticleModule, ArticleTypeModule, CollectModule],
+  controllers: [AdminController, UserController, ArticleController, ArticleTypeController, CollectController],
   providers: [AdminService],
 })
 export class AdminModule { }
