@@ -5,10 +5,15 @@ import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import Components from "unplugin-vue-components/vite"
 import { AntDesignVueResolver } from "unplugin-vue-components/resolvers"
+import WindiCSS from "vite-plugin-windicss"
+import { getThemeVariables } from "ant-design-vue/dist/theme"
 import path from "node:path";
+const modifyVars = getThemeVariables();
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
+    WindiCSS(),
     vue(),
     vueJsx(),
     Components({
@@ -29,7 +34,7 @@ export default defineConfig({
     preprocessorOptions: {
       less: {
         modifyVars: {
-          hack: `true;@import (reference) "${path.resolve("src/design/index.less")}"`
+          // hack: `${modifyVars.hack} @import "${path.resolve('src/design/index.less')}";`
         },
         javascriptEnabled: true
       }
