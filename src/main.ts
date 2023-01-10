@@ -11,7 +11,9 @@ import App from "./App.vue";
 // 项目初始化
 async function init() {
     const app = createApp(App);
+
     setupRouter(app);
+    
     app.use(createPinia()).mount("#app");
 }
 

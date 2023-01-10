@@ -1,6 +1,21 @@
 import { PageEnum } from "@/enums/pageEnum";
 import { createRouter, createWebHistory } from "vue-router";
-import type { AppRouteRecordRaw } from "../types";
+import type { AppRouteModule, AppRouteRecordRaw } from "../types";
+
+// 获取 modules下所有路由
+const modules = import.meta.glob("./modules/**/*.ts", { eager: true })
+const routeModuleList: AppRouteModule[] = [];
+
+// 加入到路由集合中
+Object.keys(modules).forEach((key) => {
+    // @ts-ignore
+    const mod = modules[key].default || {};
+    const modList = Array.isArray(mod) ? [...mod] : [mod];
+    routeModuleList.push(...modList);
+})
+
+// 异步路由
+export const asyncRoutes = [...routeModuleList]
 
 // 根路由
 export const RootRoute: AppRouteRecordRaw = {
@@ -24,5 +39,6 @@ export const LoginRoute: AppRouteRecordRaw = {
 
 export const basicRoutes = [
     LoginRoute,
-    RootRoute
+    RootRoute,
+    ...asyncRoutes
 ]

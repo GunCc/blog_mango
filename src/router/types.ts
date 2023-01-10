@@ -1,3 +1,4 @@
+import exp from "constants";
 import type { Component } from "vue";
 import type { RouteMeta, RouteRecordRaw } from "vue-router";
 
@@ -12,3 +13,5 @@ export interface AppRouteRecordRaw extends Omit<RouteRecordRaw, "meta"> {
     fullPath?: string;
 }
 
+
+export type AppRouteModule = AppRouteRecordRaw;
