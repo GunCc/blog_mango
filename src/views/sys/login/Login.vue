@@ -25,27 +25,25 @@ import { Form, Button, Input } from "ant-design-vue"
 import { reactive } from "vue";
 import { useGo } from "@/hooks/web/usePage"
 import { PageEnum } from "@/enums/pageEnum";
+import type { LoginParams } from "@/api/sys/model/userModel";
+import { useUserStore } from "@/stores/modules/user";
 let FormItem = Form.Item
-interface formState {
-    username: string;
-    password: string;
-    captcha: string;
-}
-const formData = reactive<formState>({
+
+const formData = reactive<LoginParams>({
     username: "",
     password: "",
     captcha: "",
 })
 
-let go = useGo();
-
 // 提交表单
-function handleFinish(values: formState) {
+function handleFinish(values: LoginParams) {
     console.log(values, formData);
-    go(PageEnum.BASE_HOME, true)
+    // go(PageEnum.BASE_HOME, true)
+    const userStore = useUserStore();
+    userStore.login(formData);
 }
 // 表单提交失败
-function handleFinishFailed(errors: ValidateErrorEntity<formState>) {
+function handleFinishFailed(errors: ValidateErrorEntity<LoginParams>) {
     console.log(errors);
 }
 </script>
