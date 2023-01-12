@@ -1,6 +1,6 @@
 <template>
     <Menu theme="dark" mode="inline" :defaultSelectedKeys="defaultSelectedKeys" :selectedKeys="selectedKeys"
-        :openKeys="openKeys">
+        :openKeys="openKeys" @click="handleMenuClick">
         <SubMenu v-for="menu in menus" :key="menu.path">
             <template #icon>
                 <AppstoreOutlined />
@@ -17,13 +17,14 @@ import { Menu, MenuItem, SubMenu } from 'ant-design-vue';
 import { AppstoreOutlined } from '@ant-design/icons-vue';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { getAllParentPath } from "@/router/routes/helper/menuHelper"
+import { getAllParentPath } from "@/router/helper/menuHelper"
 import { usePermissionStore } from '@/stores/modules/permission';
 import type { Menu as MenuType } from '@/router/types';
+import type { MenuInfo } from 'ant-design-vue/lib/menu/src/interface';
+import { useGo } from '@/hooks/web/usePage';
 const { currentRoute } = useRouter();
-console.group("----")
-console.log(currentRoute)
-console.groupEnd();
+
+let go = useGo()
 
 
 // 当前选中的菜单项 key 数组
@@ -41,13 +42,15 @@ menus.value = PermssionStore.getFrontMenuList
 // 修改OpenKeys
 async function setOpenKeys(path: string) {
     openKeys.value = getAllParentPath(menus.value, path)
-    debugger
-    console.log(openKeys)
+}
+// 菜单点击
+function handleMenuClick({ key }: { key: string, keyPath: string[] }) {
+    go(key)
+    selectedKeys.value = [key]
 }
 setTimeout(() => {
     setOpenKeys(currentRoute.value.path);
     selectedKeys.value = [currentRoute.value.path]
-    console.log(PermssionStore.getFrontMenuList)
 }, 1000)
 </script>
 <style lang='less' scoped>

@@ -1,7 +1,7 @@
 import { RoleEnum } from "@/enums/roleEnum";
 import { asyncRoutes } from "@/router/routes";
-import { transformRouteMenu } from "@/router/routes/helper/menuHelper";
-import { flatMultiLevelRoutes } from "@/router/routes/helper/routeHelper";
+import { transformRouteMenu } from "@/router/helper/menuHelper";
+import { flatMultiLevelRoutes } from "@/router/helper/routeHelper";
 import type { AppRouteRecordRaw, Menu } from "@/router/types";
 import { filter } from "@/utils/helper/treeHelper";
 import { defineStore } from "pinia";

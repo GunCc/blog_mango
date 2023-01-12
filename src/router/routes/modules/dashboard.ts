@@ -8,7 +8,8 @@ const dashboard: AppRouteModule = {
     redirect: '/dashboard/analysis',
     meta: {
         icon: "测试",
-        title: "Dashboard"
+        title: "Dashboard",
+        orderNo:10
     },
     children: [
         {
